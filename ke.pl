@@ -6,12 +6,11 @@
 
 	Example queries:
 	?- ke( [(q=>r), ((p&q)<=>(q&r)), -p], [], [], [], 0 ).
-	?- ke( [(q=>r), -((p&q)<=>(q&r)), p], [], [], [], 0 ).
-	?- ke( [(q=>r), -((p&q)<=>(q&r)), -p], [], [], [], 0 ).
-	?- ke( [-(q=>r), ((p&q)<=>(q&r)), p], [], [], [], 0 ).
-	?- ke( [-(q=>r), ((p&q)<=>(q&r)), -p], [], [], [], 0 ).
+	?- ke( [- ( (a => (b v c) ) => ((( b => -a ) & (-c)) => -a) )], [], [], [], 0 ).
+	?- ke( [- ((- x) & y <=> x & y <=> - y) ], [], [], [], 0 ).
+	?- ke( [s=>p, w&(-z), -p, -z=>(s v q v r), (w v y) => -q, -r], [], [], [], 0 ).
 
-	To prove {} |-F, start with the negation of Fand everything else empty
+	To prove {} |-F, start with the negation of F and everything else empty
 	?- ke( [-F], [], [], [], 0 ).
 
 	Or more generally, to prove S |-F, start with each premise in S and the negation of the conclusion:
